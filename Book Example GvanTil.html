@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Example by G. van Til</title>
+	<script type="text/javascript">
+		
+		var firstbook = {
+			title: "The Great Gijsby",
+			body: ['Written by F. Scott Fitzgijsald', 'De eerste pagina van dit geweldige boek','De tweede pagina van dit geweldige boek']
+		}
+
+		var secondbook = {
+			title: "Vraag het aan Gijs",
+			body: ['Geschreven door John Gijste','Op een avond zat ik op het bed in mijn hotelkamer op Bunker Hill, pal in het centrum van Los Angeles','Het was een belangrijke avond in mijn leven, want ik moest een besluit nemen over het hotel']
+		};
+
+
+function bookreading (book){
+	// for(var content in book){
+	// 	console.log(content + ": " + book[content]);}
+	console.log("Title: " + book.title)
+		for(page = 0; page < book.body.length; page ++){
+			console.log ("Page" + " " + (page + 1) + ": " + book.body[page])
+		}
+}
+
+bookreading(firstbook)
+
+// "for..in"-loop not working yet..
+
+</script>
+
+</head>
+<body>
+<h1>See the console for an amazing hidden book</h1>
+
+</body>
+</html>
