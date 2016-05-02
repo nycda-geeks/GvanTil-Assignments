@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype Practice by GvanTil</title>
+</head>
+<body>
+	<h1>Working on prototypes with Saan!</h1>
+	<script type="text/javascript">
+
+		// - Create a new class called EmailList. The constructor function should take in one parameter, "name", and return an instance which contains the following:
+		// - name, the name of the mailing list, such as "BSSA Students" or "BSSA Teachers".
+		// - list, an array of all the emails in that list. Note that initially, the array will be empty.
+		
+		function EmailList (name){
+			this.name = name;
+			this.list = [];
+		};
+
+		var BSSA = new EmailList ("BSSA students");
+		var Teachers = new EmailList ("BSSA teachers")
+
+		
+		// - Add a function to the EmailList's prototype. This function should be called "addEmail", and it should take one parameter, an email address and add it to the "list" property of the instance.
+
+		EmailList.prototype.addEmail = function(mailadress){
+			this.list.push(mailadress)
+		};
+		BSSA.addEmail("mail@mail.com")
+		BSSA.addEmail("gijs@mail.com")
+		BSSA.addEmail("kyle@mail.com")
+
+		console.log(BSSA.list)
+		console.log(BSSA)
+
+		// - Add another function to the EmailList's prototype, called "sendEmailToAll". This function should take in one parameter: the text of the email, and then "send an email to each address". Since that lecture will be sometime in week 6, for now, simply print out the following:
+		// 		"Email content:"
+		// <list the text of the email to be sent>
+
+		// "Sending email to:"
+		// <list all email addresses>
+
+
+		EmailList.prototype.sendEmailToAll = function (text){
+			document.write ("Email content: <br> " + text + "</br>" + "</br>")
+			document.write ("sending email to:" + "</br>")
+			for (var person = 0; person < this.list.length; person ++) {
+				document.write(this.list[person] + "</br>")
+			}
+		}
+			BSSA.sendEmailToAll("Hello All I hope to launch my first website in weeks");
+
+		</script>
+
+	</body>
+	</html>
