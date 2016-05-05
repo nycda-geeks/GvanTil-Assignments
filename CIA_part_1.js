@@ -7,6 +7,7 @@
 // - Outputs information about that specific country. Must be in the following format:
 // Country: <country name>
 // Top Level Domain: <tld>
+
 var countryname = process.argv[2] // JSONfile is case-sensitive
 var fs = require ('fs')
 
@@ -17,11 +18,10 @@ fs.readFile ('./countries.json', function (error, filedata){
 		console.log ("Something is up! Details: " + error)
 		throw error
 	}
-	//Store our file data in var as json
-	var jsondata =JSON.parse (filedata)
-// I want node.js to print out certain information from the file
-	jsondata.forEach(function( country ){
-		if (country.name == countryname){
+	var jsondata =JSON.parse (filedata) //Store our file data in var as json
+
+	jsondata.forEach(function(country){
+		if (country.name == countryname){// I want node.js to print out certain information from the file
 			console.log ('Country: ' + country.name)
 			console.log ('Top Level Domain: ' + country.topLevelDomain)
 		}

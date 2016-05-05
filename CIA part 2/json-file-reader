@@ -1,0 +1,16 @@
+var fs = require ('fs')
+
+// This is a module that reads and parses JSON files
+function readAndParse(file, callback) {
+	fs.readFile (file, function(error, data){
+		if ( error ) {
+			console.log ("Something is up! Details: " + error)
+			throw error
+		}
+		else {
+			callback(JSON.parse(data));
+		}
+	})
+}
+
+module.exports.reader = readAndParse
