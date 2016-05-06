@@ -7,9 +7,13 @@
 // - Another way to think of it is as a small wrapper to fs.readFile, except that this function only works with JSON files.
 
 var countryname = process.argv[2] // JSONfile is case-sensitive
-var jsonreader = require ('./json-file-reader')
+var jsonreader = require('./json-file-reader')
 
-// Hints:
-// - Use JSON.parse (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse (Links to an external site.)) to parse JSON data from files into a JavaScript object.
-// - Try first completing the assignment without creating a separate module - Extracting the second module out is significantly more difficult.
-
+jsonreader.reader('./countries.json', function(data){
+	for (i = 0; i < data.length; i ++){
+		if (data[i].name == process.argv[2]){
+			console.log ("Country: " + data[i].name)
+			console.log ("Top Level Domain: " + data[i].topLevelDomain)
+		}
+	}
+})
